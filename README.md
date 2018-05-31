@@ -4,7 +4,7 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
 
 ## Documentação do projeto: casos de uso e esboços
 
-A documentação completa do projeto pode ser encontrada na [Wiki](https://github.com/diegoquirino/cursoalbum2/) ou na pasta [DOCS](https://github.com/diegoquirino/cursoalbum2/docs)
+A documentação completa do projeto pode ser encontrada na [Wiki](https://github.com/diegoquirino/cursoalbum2/wiki) ou na pasta [Docs do projeto GitHub](https://github.com/diegoquirino/cursoalbum2/tree/master/docs/)
 
 ## Development server
 
