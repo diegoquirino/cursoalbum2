@@ -1,27 +1,33 @@
 # Curso Ábum v2.0
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 6.0.5.
+
+## Documentação do projeto: casos de uso e esboços
+
+A documentação completa do projeto pode ser encontrada na [Wiki](https://github.com/diegoquirino/cursoalbum2/) ou na pasta [DOCS](https://github.com/diegoquirino/cursoalbum2/docs)
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Após fazer o clone do projeto, execute `ng serve` para acessar a aplicação localmente, no endereço `http://localhost:4200/`.
 
-## Code scaffolding
+## Compilação do projeto (Build)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para disponibilizar a compilação do projeto, utilize o comando `ng build`. O projeto "compilado" será disponibilizado no diretório `dist/` directory. Use a flag `--prod` no caso de desejar realizar a compilação para o ambiente de produção.
 
-## Build
+## Testes Unitários
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Opcionalmente, você poderá executar os testes unitários, utilize o comando `ng test` - caso tenha implementado os testes unitários com [Karma](https://karma-runner.github.io).
 
-## Running unit tests
+## Testes Funcionais Automatizados para Angular
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Opcionalmente, você poderá executar os testes funcionais automatizados através do comando `ng e2e` - caso tenha implementado os testes funcionais automáticos com [Protractor](http://www.protractortest.org/).
 
-## Running end-to-end tests
+## Ajuda
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Para ajuda com os comandos Angular CLI, utilize o comando `ng help` ou verifique a [documentação do Angular CLI](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## Further help
+## Contato
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Professor: Carlos Diego Quirino Lima
+Site: http://diegoquirino.pro.br
+Email: professor@diegoquirino.pro.br
