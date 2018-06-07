@@ -5,13 +5,25 @@ import { RouterModule, Routes } from '@angular/router'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AlbumsListComponent } from './albums-list/albums-list.component';
+
+import { ReactiveFormsModule } from "@angular/forms";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import { AuthService } from './core/auth.service';
+import { AuthGuard} from './core/auth.guard';
 
 const routes:Routes = [
     { path: '', component: HomePageComponent },
+    { path: 'albums-list', component: AlbumsListComponent, canActivate: [AuthGuard]},
 ];
 
 // AoT requires an exported function for factories
@@ -22,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
     declarations: [
         AppComponent,
-        HomePageComponent
+        HomePageComponent,
+        AlbumsListComponent
     ],
     imports: [
         BrowserModule,
@@ -35,9 +48,18 @@ export function HttpLoaderFactory(http: HttpClient) {
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        CoreModule,
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(environment.firebase, 'sala-de-aula'),
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        AngularFireStorageModule
     ],
-    providers: [],
+    providers: [
+        AuthService,
+        AuthGuard
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
