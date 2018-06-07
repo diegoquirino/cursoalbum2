@@ -7,12 +7,16 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { NotifyService } from './notify.service';
 
 import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { first, tap, switchMap} from 'rxjs/operators';
 import { User } from "../model/user";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root',
+})
 export class AuthService {
     user: Observable<User | null>;
+
+    loggedUser: Observable<User | null>;
 
     constructor(
         private afAuth: AngularFireAuth,
@@ -111,6 +115,7 @@ export class AuthService {
     }
 
     signOut() {
+        this.loggedUser = null;
         this.afAuth.auth.signOut().then(() => {
             this.router.navigate(['/']);
         });
@@ -132,6 +137,8 @@ export class AuthService {
             uid: user.uid,
             email: user.email || null
         };
+
         return userRef.set(data, {merge: true});
     }
+
 }

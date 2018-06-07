@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AuthService } from './core/auth.service';
 import { AuthGuard} from './core/auth.guard';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 const routes:Routes = [
     { path: '', component: HomePageComponent },
@@ -35,7 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     declarations: [
         AppComponent,
         HomePageComponent,
-        AlbumsListComponent
+        AlbumsListComponent,
+        MainNavComponent
     ],
     imports: [
         BrowserModule,
@@ -54,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         AngularFireModule.initializeApp(environment.firebase, 'sala-de-aula'),
         AngularFireAuthModule,
         AngularFirestoreModule,
+        AngularFirestoreModule.enablePersistence(),
         AngularFireStorageModule
     ],
     providers: [

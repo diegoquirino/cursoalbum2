@@ -1,0 +1,20 @@
+<div class="navbar navbar-dark bg-dark box-shadow">
+  <div class="container d-flex justify-content-between">
+    <a href="#" class="navbar-brand d-flex align-items-center">
+      <img src="assets/img/favicon.png" alt="" height="32">&nbsp;&nbsp;
+      <strong>{{"Title"|translate}}</strong>
+    </a>
+    <!-- Usuário não está logado-->
+    <button class="navbar-toggler" id="button.login" type="button" routerLink="/">
+      <span>{{"Label.Login"|translate}}</span>
+      &nbsp;<i class="fa fa-sign-in"></i>
+    </button>
+    <!-- Usuário está logado-->
+    <button class="navbar-toggler" id="button.user.dropdown" type="button" >
+      <i class="fa fa-user" id="img.profile.photo"></i>
+      &nbsp;<span>{{auth.user.name}}</span>
+      &nbsp;<i class="fa fa-angle-down"></i>
+    </button>
+
+  </div>
+</div>
