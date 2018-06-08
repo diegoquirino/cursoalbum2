@@ -18,11 +18,18 @@
 
         <!-- Usuário está logado-->
         <ng-template #authenticated >
-            <button class="navbar-toggler" id="button.user.dropdown" *ngIf="auth.user | async as user" type="button" >
-                <i class="fa fa-user" id="img.profile.photo"></i>
-                &nbsp;<span>{{user.name}}</span>
-                &nbsp;<i class="fa fa-angle-down"></i>
-            </button>
+            <div class="btn-group">
+                <button class="navbar-toggler dropdown-toggle" id="button.user.dropdown" *ngIf="auth.user | async as user" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    <i class="fa fa-user" id="img.profile.photo"></i>
+                    &nbsp;<span>{{user.name}}</span>
+                    <!--&nbsp;<i class="fa fa-angle-down"></i>-->
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="button.user.dropdown">
+                    <a class="dropdown-item" id="menu.user.config" href="#"><i class="fa fa-cog"></i> {{"Label.Config"|translate}}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" id="menu.user.logout" (click)="logout()"><i class="fa fa-sign-out"></i>{{"Label.Logout"|translate}}</a>
+                </div>
+            </div>
         </ng-template>
 
     </div>

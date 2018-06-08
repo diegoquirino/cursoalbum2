@@ -2,5 +2,7 @@
   "Title": "Curso Álbum",
   "Footer.Text": "Curso Álbum - Prática em Sala de Aula © Prof.º Carlos Diego Quirino Lima",
 
-  "Label.Login": "Login"
+  "Label.Login": "Entrar",
+  "Label.Logout": "Sair",
+  "Label.Config": "Configurações"
 }
