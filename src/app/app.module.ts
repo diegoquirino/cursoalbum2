@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { AuthService } from './core/auth.service';
 import { AuthGuard} from './core/auth.guard';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { AlertMsgsComponent } from './alert-msgs/alert-msgs.component';
 
 const routes:Routes = [
     { path: '', component: HomePageComponent },
@@ -37,7 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         AppComponent,
         HomePageComponent,
         AlbumsListComponent,
-        MainNavComponent
+        MainNavComponent,
+        AlertMsgsComponent
     ],
     imports: [
         BrowserModule,
