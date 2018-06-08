@@ -1,19 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../core/auth.service";
+import { AuthService } from "../core/auth.service";
 
 @Component({
     selector: 'app-main-nav',
     templateUrl: './main-nav.component.html',
     styleUrls: ['./main-nav.component.css']
 })
-export class MainNavComponent implements OnInit {
+export class MainNavComponent {
 
-    constructor(private auth: AuthService) {
-    }
-
-    ngOnInit() {
-    }
+    constructor(private auth: AuthService) { }
 
 }
-
-

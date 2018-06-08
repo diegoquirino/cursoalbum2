@@ -14,9 +14,8 @@ import { User } from "../model/user";
     providedIn: 'root',
 })
 export class AuthService {
-    user: Observable<User | null>;
 
-    loggedUser: Observable<User | null>;
+    user: Observable<User | null>;
 
     constructor(
         private afAuth: AngularFireAuth,
@@ -24,12 +23,31 @@ export class AuthService {
         private router: Router,
         private notify: NotifyService
     ) {
-        this.user = this.afAuth.authState.pipe(
+        this.user = this.getUser();
+    }
+
+    getUser() {
+        return this.afAuth.authState.pipe(
             switchMap(user => {
                 if (user) {
                     return this.afs.doc<User>(`album_users/${user.uid}`).valueChanges();
                 } else {
                     return of(null);
+                }
+            })
+        );
+    }
+
+    getUserData() {
+        return this.afAuth.authState.pipe(
+            switchMap(user => {
+                if (user) {
+                    return this.afs.doc<User>(`album_users/${user.uid}`).ref.get().then(doc=>{
+                        if(doc.exists) return doc.data();
+                        return null;
+                    });
+                } else {
+                    return null;
                 }
             })
         );
@@ -115,7 +133,6 @@ export class AuthService {
     }
 
     signOut() {
-        this.loggedUser = null;
         this.afAuth.auth.signOut().then(() => {
             this.router.navigate(['/']);
         });
